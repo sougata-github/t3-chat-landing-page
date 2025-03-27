@@ -1,7 +1,3 @@
-base colors:
+todo:
 
-dark:
-
-background:
-HSL 309, 18, 8
-foreground: white
+add proper logo.

@@ -22,7 +22,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} antialiased`}>
+      <body className={`${geistSans.variable} antialiased dark`}>
+        <div className="absolute inset-0 top-[-150px] hidden md:block h-[400px] w-full bg-[radial-gradient(ellipse_at_center,_rgba(255,105,180,0.7)_20%,_rgba(249,43,129,0.5)_50%,_transparent_80%)] blur-[200px] opacity-75 pointer-events-none overflow-hidden" />
         <Navbar />
         <main className="max-w-5xl px-4 flex flex-col overflow-y-auto mx-auto">
           {children}
