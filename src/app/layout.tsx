@@ -24,9 +24,7 @@ export default function RootLayout({
       <body className={`${onest.className} antialiased dark`}>
         <div className="absolute inset-0 top-[-280px] h-[280px] w-full bg-[radial-gradient(ellipse_at_center,_rgba(249,43,129,0.8)_50%,_transparent_80%)] blur-[200px] opacity-80 pointer-events-none overflow-hidden" />
         <Navbar />
-        <main className="max-w-5xl px-4 flex flex-col overflow-y-auto mx-auto">
-          {children}
-        </main>
+        <main className="max-w-7xl px-4 flex flex-col mx-auto">{children}</main>
         <Footer />
       </body>
     </html>
