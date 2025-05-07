@@ -31,13 +31,15 @@ const itemVariants = {
 
 const Hero = () => {
   return (
-    <section className="pt-16 md:pt-20">
+    <section className="py-16 md:py-20 relative">
+      {/* grain effect */}
+      <div className="absolute top-40 inset-0 grain-overlay" />
+
       <motion.div variants={itemVariants} initial="initial" animate="animate">
         <ShinyButton />
       </motion.div>
-
       <motion.div
-        className="flex flex-col gap-6 item-center justify-center text-center mt-10"
+        className="flex flex-col gap-6 items-center justify-center text-center mt-10 [mask-image:linear-gradient(to_bottom,black_75%,transparent)]"
         variants={containerVariants}
         initial="initial"
         animate="animate"
@@ -62,6 +64,26 @@ const Hero = () => {
         >
           <GetStartedButton />
         </motion.div>
+
+        {/* hero video */}
+        <motion.div
+          className="md:mt-24 mt-14 rounded-lg"
+          variants={itemVariants}
+        >
+          <motion.video
+            controls={false}
+            autoPlay
+            muted
+            playsInline
+            loop
+            className="rounded-lg"
+          >
+            <source src="/t3-chat-hero.mp4" type="video/mp4" />
+          </motion.video>
+        </motion.div>
+
+        {/* hero gradient */}
+        <div className="absolute top-90 lg:h-[900px] lg:w-[900px] md:h-[400px] md:w-[400px] -translate-x-1/2 left-1/2 rounded-full bg-[radial-gradient(circle,__rgba(299,43,129,1)_40%,_#fd0e85_50%,_transparent_90%)] blur-[80px] opacity-90 max-md:hidden -z-10" />
       </motion.div>
     </section>
   );

@@ -6,16 +6,6 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { AnimatedShinyText } from "../magicui/animated-shiny-text";
 
-export function AvailableForHire() {
-  return (
-    <div className="inline-flex items-center gap-2 mb-10 py-1 px-3 rounded-full outline outline-1 outline-white/20">
-      <span className="size-2 bg-lime-500 rounded-full absolute" />
-      <span className="size-2 bg-lime-500 rounded-full animate-ping" />
-      <p className="text-white/60 text-xs">Available for hire</p>
-    </div>
-  );
-}
-
 export const ShinyButton = () => {
   return (
     <div className="z-10 flex items-center justify-center">
@@ -25,6 +15,10 @@ export const ShinyButton = () => {
         )}
       >
         <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+          {/* <div className="inline-flex items-center mr-2">
+            <span className="size-2 bg-pink-500 rounded-full absolute" />
+            <span className="size-2 bg-pink-500 rounded-full animate-ping" />
+          </div> */}
           <span className="text-sm">t3.chat app now available</span>
           <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
         </AnimatedShinyText>
@@ -41,7 +35,7 @@ export const GetStartedButton = () => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       href="#"
-      className="relative overflow-hidden bg-primary-pink rounded-full font-medium text-sm flex items-center justify-center h-9 w-36 text-center gap-2 transition-shadow duration-300 hover:shadow-[0_0_20px_3px_rgba(255,105,180,0.4)]"
+      className="relative overflow-hidden bg-white text-black rounded-full font-medium text-sm flex items-center justify-center h-9 w-36 text-center gap-2"
     >
       Get Started
       <motion.div

@@ -137,7 +137,10 @@
 }
 
 @layer utilities {
-  .bg-primary-pink {
-    @apply bg-[rgba(249,43,129,1)];
+  .grain-overlay {
+    background-image: url("/grain.jpg");
+    background-position: center;
+
+    @apply opacity-10 mix-blend-overlay z-10 pointer-events-none;
   }
 }

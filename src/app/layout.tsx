@@ -22,7 +22,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${onest.className} antialiased dark`}>
-        <div className="absolute inset-0 top-[-280px] h-[280px] w-full bg-[radial-gradient(ellipse_at_center,_rgba(249,43,129,0.8)_50%,_transparent_80%)] blur-[200px] opacity-80 pointer-events-none overflow-hidden" />
+        {/* top gradient */}
+        <div className="absolute inset-0 top-[-400px] h-[280px] w-full lg:w-[800px] left-[40%] bg-[radial-gradient(ellipse_at_center,_rgba(299,43,129,1)_100%,_transparent_90%)] blur-[200px] opacity-80 pointer-events-none overflow-hidden" />
+
         <Navbar />
         <main className="max-w-7xl px-4 flex flex-col mx-auto">{children}</main>
         <Footer />
