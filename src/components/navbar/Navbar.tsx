@@ -5,6 +5,7 @@ import Link from "next/link";
 import { navLinks } from "@/constants";
 import { Button } from "../ui/button";
 import MobileNav from "./MobileNav";
+import { BotMessageSquare } from "lucide-react";
 
 const Navbar = () => {
   return (
@@ -12,21 +13,7 @@ const Navbar = () => {
       <nav className="max-w-5xl mx-auto flex items-center w-full justify-between px-8 lg:px-4">
         {/* logo */}
         <Link href="/" className="flex items-center gap-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="#ff3e78"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="lucide lucide-message-circle-icon lucide-message-circle -mt-0.5"
-          >
-            <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-          </svg>
-
+          <BotMessageSquare className="text-pink-700" />
           <span className="text-xl font-bold">T3.Chat</span>
         </Link>
 

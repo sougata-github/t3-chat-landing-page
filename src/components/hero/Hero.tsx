@@ -52,7 +52,7 @@ const Hero = () => {
           The Fastest AI Chatbot
         </motion.h1>
         <motion.p
-          className="text-muted-foreground max-w-md max-md:max-w-xs mx-auto"
+          className="text-muted-foreground max-w-md max-md:max-w-xs mx-auto text-base md:text-lg"
           variants={itemVariants}
         >
           Experience the fastest, most versatile AI chat app built to deliver
