@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GetStartedButton, ShinyButton } from "./HeroButtons";
+import HeroVideoDialog from "../magicui/hero-video-dialog";
 
 const containerVariants = {
   initial: { opacity: 0 },
@@ -67,19 +68,15 @@ const Hero = () => {
 
         {/* hero video */}
         <motion.div
-          className="md:mt-24 mt-14 rounded-lg"
+          className="lg:mt-20 mt-14 rounded-lg relative"
           variants={itemVariants}
         >
-          <motion.video
-            controls={false}
-            autoPlay
-            muted
-            playsInline
-            loop
-            className="rounded-lg"
-          >
-            <source src="/t3-chat-hero.mp4" type="video/mp4" />
-          </motion.video>
+          <HeroVideoDialog
+            animationStyle="from-center"
+            videoSrc="https://www.youtube.com/embed/QLvIoi2s1zY?si=IhZ2-lZ4k21M6Nbu"
+            thumbnailSrc="/hero-thumbnail.png"
+            thumbnailAlt="Hero Video"
+          />
         </motion.div>
 
         {/* hero gradient */}

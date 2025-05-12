@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
-import { ArrowRight, ChevronRight } from "lucide-react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { AnimatedShinyText } from "../magicui/animated-shiny-text";
+import { Button } from "../ui/button";
+import { ChevronRight } from "lucide-react";
 
 export const ShinyButton = () => {
   return (
@@ -28,45 +27,10 @@ export const ShinyButton = () => {
 };
 
 export const GetStartedButton = () => {
-  const [hovered, setHovered] = useState(false);
-
   return (
-    <motion.a
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      href="#"
-      className="relative overflow-hidden bg-white text-black rounded-full font-medium text-sm flex items-center justify-center h-9 w-36 text-center gap-2"
-    >
+    <Button className="group rounded-full gap-0.5" size="lg">
       Get Started
-      <motion.div
-        className="flex items-center justify-center rounded-full"
-        initial={false}
-        animate={{ y: hovered ? 1 : 0 }}
-        transition={{ duration: 0.2 }}
-      >
-        <motion.div
-          initial={false}
-          animate={{
-            scale: hovered ? 0.5 : 1,
-            opacity: hovered ? 0 : 1,
-          }}
-          transition={{ duration: 0.2 }}
-          className="inline-block"
-        >
-          <ChevronRight className="size-4" />
-        </motion.div>
-        <motion.div
-          initial={false}
-          animate={{
-            scale: hovered ? 1 : 0.5,
-            opacity: hovered ? 1 : 0,
-          }}
-          transition={{ duration: 0.2 }}
-          className="absolute top-0 left-0"
-        >
-          <ArrowRight className="size-4" />
-        </motion.div>
-      </motion.div>
-    </motion.a>
+      <ChevronRight className="size-4 transition group-hover:translate-x-0.5 -mt-[0.02px]" />
+    </Button>
   );
 };
