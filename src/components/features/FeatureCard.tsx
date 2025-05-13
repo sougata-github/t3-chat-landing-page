@@ -21,7 +21,7 @@ const FeatureCard = ({
         className
       )}
     >
-      <div className="flex flex-col">
+      <div className="flex flex-col h-full justify-between">
         {children}
 
         <div className="flex flex-col justify-start">

@@ -30,7 +30,7 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <Button className="text-sm rounded-full" asChild variant="outline">
+            <Button className="text-sm rounded-full" asChild variant="ghost">
               <Link href="/">Try for free</Link>
             </Button>
           </ul>

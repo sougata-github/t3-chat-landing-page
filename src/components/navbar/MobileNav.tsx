@@ -15,9 +15,9 @@ import { Button } from "../ui/button";
 
 const MobileNav = () => {
   return (
-    <Drawer>
+    <Drawer modal={false}>
       <DrawerTrigger asChild className="max-md:flex hidden">
-        <Button variant="outline" size="icon">
+        <Button variant="ghost" size="icon">
           <MenuIcon />
         </Button>
       </DrawerTrigger>

@@ -13,7 +13,7 @@ const FastFeatureCard = () => {
       title="Blazingly-fast responses"
       description="Get instant answers to your questions."
     >
-      <div className="flex flex-col gap-4 py-10 h-[220px]">
+      <div className="flex flex-col gap-6 sm:gap-4 py-2 h-[220px] pt-10 sm:pt-14">
         <Message role="user" message={userMessge} delay={0.4} />
         <Message role="ai" message={aiMessage} delay={0.8} />
       </div>
@@ -56,7 +56,7 @@ const Message = ({ role, message, delay }: MessageProps) => {
       <div
         className={cn(
           "rounded-full p-2 outline h-fit transition duration-300",
-          role === "user" ? "order-2" : "order-1"
+          role === "user" ? "order-2 outline-pink-700" : "order-1"
         )}
       >
         {role === "user" ? (
