@@ -27,7 +27,7 @@ const FeatureCard = ({
         <div className="flex flex-col justify-start">
           <h2 className="text-lg">{title}</h2>
 
-          <p className="text-muted-foreground lg:max-w-sm">{description}</p>
+          <p className="text-muted-foreground">{description}</p>
         </div>
       </div>
     </div>

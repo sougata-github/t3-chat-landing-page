@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { AnimatedShinyText } from "../magicui/animated-shiny-text";
 import { Button } from "../ui/button";
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export const ShinyButton = () => {
   return (
@@ -28,9 +29,11 @@ export const ShinyButton = () => {
 
 export const GetStartedButton = () => {
   return (
-    <Button className="group rounded-full gap-0.5" size="lg">
-      Get Started
-      <ChevronRight className="size-4 transition group-hover:translate-x-0.5 -mt-[0.02px]" />
+    <Button asChild className="group rounded-full gap-0.5" size="lg">
+      <Link href="https://t3.chat/chat">
+        Get Started
+        <ChevronRight className="size-4 transition group-hover:translate-x-0.5 -mt-[0.02px]" />
+      </Link>
     </Button>
   );
 };
