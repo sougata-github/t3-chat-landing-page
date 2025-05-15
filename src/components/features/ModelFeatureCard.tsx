@@ -1,11 +1,54 @@
+"use client";
+
+import type React from "react";
+
 import { RiGeminiFill, RiClaudeFill, RiOpenaiFill } from "react-icons/ri";
 import { BotMessageSquare } from "lucide-react";
 import Image from "next/image";
 
-import { OrbitingCircles } from "../magicui/orbiting-circles";
+import { motion, useInView } from "framer-motion";
 import FeatureCard from "./FeatureCard";
+import { useRef } from "react";
+
+const centerIconVariants = {
+  hidden: { opacity: 0, filter: "blur(10px)" },
+  visible: {
+    filter: "blur(0px)",
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+const innerRingVariants = {
+  hidden: { opacity: 0, filter: "blur(10px)" },
+  visible: {
+    filter: "blur(0px)",
+    opacity: 1,
+    transition: {
+      duration: 0.8,
+      delay: 0.3,
+    },
+  },
+};
+
+const outerRingVariants = {
+  hidden: { opacity: 0, filter: "blur(10px)" },
+  visible: {
+    filter: "blur(0px)",
+    opacity: 1,
+    transition: {
+      duration: 1,
+      delay: 0.6,
+    },
+  },
+};
 
 const ModelFeatureCard = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
   return (
     <FeatureCard
       className="lg:col-span-3"
@@ -13,62 +56,114 @@ const ModelFeatureCard = () => {
       description="Choose from a variety of popular ai models."
     >
       {/* orbiting circles */}
-      <div className="relative flex-col gap-4 py-10 h-[260px] w-full items-center justify-center overflow-hidden [mask-image:linear-gradient(to_bottom,black_75%,transparent)] sm:flex hidden">
-        {/* main logo */}
-        <div className="p-2.5 absolute rounded-full bg-neutral-800 flex items-center justify-center">
-          <BotMessageSquare className="text-white size-8" />
-        </div>
+      <div
+        className="relative flex-col gap-4 py-10 h-[260px] w-full items-center justify-center overflow-hidden [mask-image:linear-gradient(to_bottom,black_75%,transparent)]"
+        ref={ref}
+      >
+        <motion.div
+          className="p-2.5 absolute rounded-full bg-pink-700 flex items-center justify-center max-sm:top-[50%] top-50 md:top-52 lg:top-50 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 shadow"
+          variants={centerIconVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <BotMessageSquare className="text-white size-8 max-sm:size-7" />
+        </motion.div>
 
-        <OrbitingCircles iconSize={100} radius={180}>
-          <Icon icon={<RiClaudeFill className="size-7.5" fill="#ff9f5b" />} />
-          <Icon
-            icon={
-              <Image
-                src="/deepseek-logo.svg"
-                height={32}
-                width={32}
-                alt="deepseek"
-              />
-            }
-          />
-        </OrbitingCircles>
-        <OrbitingCircles iconSize={30} radius={100} reverse speed={1}>
-          <Icon icon={<RiOpenaiFill className="size-7.5" fill="#d8d8d8" />} />
-          <Icon icon={<RiGeminiFill className="size-7" fill="#3195ff" />} />
-        </OrbitingCircles>
-      </div>
+        {/* ring-1 */}
+        <motion.div
+          className="absolute max-sm:top-[50%] max-sm:size-40 size-60 md:size-56 lg:size-60 rounded-full top-60 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(219, 39, 119, 0.15), rgba(219, 39, 119, 0.05))",
+            boxShadow: "inset 0 0 15px rgba(219, 39, 119, 0.1)",
+            border: "1px solid rgba(219, 39, 119, 0.7)",
+          }}
+          variants={innerRingVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          whileInView={{
+            rotate: "1turn",
+            transition: {
+              ease: "linear",
+              duration: 15,
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "loop",
+              delay: 0.3,
+            },
+          }}
+        >
+          <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2">
+            <Icon
+              icon={
+                <RiOpenaiFill className="size-8 max-sm:size-6" fill="#d8d8d8" />
+              }
+            />
+          </div>
+          <div className="absolute top-1/2 left-full -translate-x-1/2 -translate-y-1/2">
+            <Icon
+              icon={
+                <RiGeminiFill
+                  className="size-7.5 max-sm:size-6"
+                  fill="#3195ff"
+                />
+              }
+            />
+          </div>
+        </motion.div>
 
-      {/* for mobile */}
-      <div className="relative flex-col gap-4 py-10 h-[260px] w-full items-center justify-center overflow-hidden [mask-image:linear-gradient(to_bottom,black_75%,transparent)] hidden max-sm:flex">
-        {/* main logo */}
-        <div className="p-2.5 absolute rounded-full bg-neutral-800 flex items-center justify-center">
-          <BotMessageSquare className="text-white size-6" />
-        </div>
-
-        <OrbitingCircles iconSize={100} radius={120}>
-          <Icon icon={<RiClaudeFill className="size-5" fill="#ff9f5b" />} />
-          <Icon
-            icon={
-              <Image
-                src="/deepseek-logo.svg"
-                height={20}
-                width={20}
-                alt="deepseek"
-              />
-            }
-          />
-        </OrbitingCircles>
-        <OrbitingCircles iconSize={30} radius={60} reverse speed={1}>
-          <Icon icon={<RiOpenaiFill className="size-5" fill="#d8d8d8" />} />
-          <Icon icon={<RiGeminiFill className="size-4.5" fill="#3195ff" />} />
-        </OrbitingCircles>
+        {/* ring-2 */}
+        <motion.div
+          className="absolute max-sm:top-[50%] max-sm:size-70 size-100 md:size-90 lg:size-100 rounded-full top-60 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(219, 39, 119, 0.1), rgba(219, 39, 119, 0.02))",
+            boxShadow: "inset 0 0 20px rgba(219, 39, 119, 0.15)",
+            border: "1px solid rgba(219, 39, 119, 0.6)",
+          }}
+          variants={outerRingVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          whileInView={{
+            rotate: "-1turn",
+            transition: {
+              ease: "linear",
+              duration: 25,
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "loop",
+              delay: 0.6,
+            },
+          }}
+        >
+          <div className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2">
+            <Icon
+              icon={
+                <Image
+                  src="/deepseek-logo.svg"
+                  height={32}
+                  width={32}
+                  alt="deepseek"
+                  className="max-sm:size-6"
+                />
+              }
+            />
+          </div>
+          <div className="absolute top-1/2 left-full -translate-x-1/2 -translate-y-1/2">
+            <Icon
+              icon={
+                <RiClaudeFill className="size-8 max-sm:size-6" fill="#ff9f5b" />
+              }
+            />
+          </div>
+        </motion.div>
       </div>
     </FeatureCard>
   );
 };
 
 const Icon = ({ icon }: { icon: React.ReactElement }) => {
-  return <div className="p-2 bg-neutral-800 rounded-full">{icon}</div>;
+  return (
+    <div className="p-2 bg-neutral-800 rounded-full shadow-md">{icon}</div>
+  );
 };
 
 export default ModelFeatureCard;
