@@ -12,14 +12,18 @@ import React, {
 
 export function AnimatedListItem({ children }: { children: React.ReactNode }) {
   const animations = {
-    initial: { scale: 0, opacity: 0 },
-    animate: { scale: 1, opacity: 1, originY: 0 },
+    initial: { scale: 0, opacity: 0, filter: "blur(10px)" },
+    animate: { scale: 1, opacity: 1, originY: 0, filter: "blur(0px)" },
     exit: { scale: 0, opacity: 0 },
-    transition: { type: "spring", stiffness: 350, damping: 40 },
+    transition: { type: "spring", stiffness: 350, damping: 40, duration: 0.4 },
   };
 
   return (
-    <motion.div {...animations} layout className="mx-auto w-full">
+    <motion.div
+      {...animations}
+      layout
+      className="mx-auto w-full bg-muted-foreground/5 rounded-xl"
+    >
       {children}
     </motion.div>
   );

@@ -1,4 +1,4 @@
-import { Code, Plus, Sparkles, User } from "lucide-react";
+import { Code, Heart, User, WandSparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import { AnimatedList } from "../magicui/animated-list";
@@ -31,12 +31,12 @@ const preferences = [
   {
     question: "What traits should T3 Chat have?",
     description: "Chatty, witty, opinionated",
-    icon: <Sparkles className="size-5 text-pink-700" />,
+    icon: <WandSparkles className="size-5 text-pink-700" />,
   },
   {
     question: "Anything else T3 Chat should know?",
     description: "Interests, values, preferences, etc",
-    icon: <Plus className="size-5 text-pink-700" />,
+    icon: <Heart className="size-5 text-pink-700" />,
   },
 ];
 
@@ -50,15 +50,16 @@ const Preference = ({ icon, question, description }: Props) => {
   return (
     <figure
       className={cn(
-        "relative mx-auto min-h-fit w-full lg:max-w-[400px] cursor-pointer overflow-hidden rounded-2xl p-4",
-        "transform-gpu dark:bg-transparent dark:[border:1px_solid_rgba(255,255,255,.1)]"
+        "relative mx-auto min-h-fit w-full lg:max-w-[400px] cursor-pointer overflow-hidden rounded-xl p-4",
+        "transform-gpu"
       )}
     >
-      <div className="flex flex-row items-center gap-3">
-        {icon}
+      <div className="flex flex-row items-center gap-4">
+        <div className="bg-muted-foreground/10 rounded-full p-2">{icon}</div>
+
         <div className="flex flex-col overflow-hidden">
           <figcaption className="flex flex-row items-center whitespace-pre text-sm font-medium dark:text-white ">
-            <span className="text-sm sm:text-base text-wrap">{question}</span>
+            <span className="text-sm font-medium text-wrap">{question}</span>
           </figcaption>
           <p className="text-xs font-normal dark:text-white/60">
             {description}

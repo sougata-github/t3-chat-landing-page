@@ -57,7 +57,7 @@ const ModelFeatureCard = () => {
     >
       {/* orbiting circles */}
       <div
-        className="relative flex-col gap-4 py-10 h-[260px] w-full items-center justify-center overflow-hidden [mask-image:linear-gradient(to_bottom,black_75%,transparent)]"
+        className="relative h-[320px] sm:h-[260px] w-full items-center justify-center overflow-hidden [mask-image:linear-gradient(to_bottom,black_75%,transparent)]"
         ref={ref}
       >
         <motion.div
@@ -66,7 +66,7 @@ const ModelFeatureCard = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <BotMessageSquare className="text-white size-8 max-sm:size-7" />
+          <BotMessageSquare className="text-black size-8 max-sm:size-7" />
         </motion.div>
 
         {/* ring-1 */}

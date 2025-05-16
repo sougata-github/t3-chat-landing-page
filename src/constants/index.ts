@@ -12,5 +12,6 @@ export const navLinks = [
     label: "Pricing",
   },
 ];
-export const userMessge = "hello";
-export const aiMessage = "Hello! How can I help you today?";
+export const userMessge = "How does AI work?";
+export const aiMessage =
+  "AI works by feeding computers lots of data and using algorithms to help them learn patterns and make predictions or decisions.";

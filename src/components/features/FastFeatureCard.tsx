@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Bot, SmileIcon } from "lucide-react";
+import { BotMessageSquare, SmileIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { aiMessage, userMessge } from "@/constants";
@@ -13,7 +13,7 @@ const FastFeatureCard = () => {
       title="Blazingly-fast responses"
       description="Get instant answers to your questions."
     >
-      <div className="flex flex-col gap-6 sm:gap-4 py-2 h-[220px] pt-10 sm:pt-14">
+      <div className="flex flex-col gap-6 sm:gap-4 py-2 h-[260px] sm:h-[220px] pt-6 sm:pt-10">
         <Message role="user" message={userMessge} delay={0.4} />
         <Message role="ai" message={aiMessage} delay={0.8} />
       </div>
@@ -55,30 +55,30 @@ const Message = ({ role, message, delay }: MessageProps) => {
       {/* avatar */}
       <div
         className={cn(
-          "rounded-full p-2 outline h-fit transition duration-300",
-          role === "user" ? "order-2 outline-pink-700" : "order-1"
+          "bg-muted-foreground/10 rounded-full p-2 h-fit transition duration-300",
+          role === "user" ? "order-2" : "order-1"
         )}
       >
         {role === "user" ? (
           <SmileIcon className="size-5 text-white" />
         ) : (
-          <Bot className="size-5 text-white" />
+          <BotMessageSquare className="size-5 text-white" />
         )}
       </div>
 
       {/* message */}
       <motion.div
         className={cn(
-          "rounded-2xl py-2 px-4 md:max-w-[180px]",
+          "rounded-2xl py-2 px-4",
           role === "user"
-            ? "order-1 bg-pink-700"
+            ? "order-1 bg-pink-800"
             : "order-2 bg-muted-foreground/5"
         )}
       >
         {role === "ai" && isTypingBot ? (
           <LoadingDots />
         ) : (
-          <p>
+          <p className="text-wrap max-w-sm">
             {message.split(" ").map((word, index) => (
               <motion.span
                 key={`${word}-${index}`}

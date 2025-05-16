@@ -25,7 +25,7 @@ const FeatureCard = ({
         {children}
 
         <div className="flex flex-col justify-start">
-          <h2 className="text-lg">{title}</h2>
+          <h2 className="text-lg font-medium">{title}</h2>
 
           <p className="text-muted-foreground">{description}</p>
         </div>
