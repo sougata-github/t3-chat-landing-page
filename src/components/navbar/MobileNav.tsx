@@ -43,7 +43,7 @@ const MobileNav = () => {
             </Link>
           </DrawerTitle>
           <DrawerClose asChild>
-            <Button variant="outline" size="icon">
+            <Button variant="ghost" size="icon">
               <X />
             </Button>
           </DrawerClose>
@@ -61,11 +61,7 @@ const MobileNav = () => {
           ))}
         </ul>
         <DrawerFooter>
-          <Button
-            className="text-sm rounded-full w-full mt-4"
-            asChild
-            variant="outline"
-          >
+          <Button className="text-sm rounded-full w-full mt-4" asChild>
             <Link href="/">Try for free</Link>
           </Button>
         </DrawerFooter>

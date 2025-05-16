@@ -30,7 +30,7 @@ const Navbar = () => {
               </Link>
             ))}
 
-            <Button className="text-sm rounded-xl" asChild variant="ghost">
+            <Button className="text-sm rounded-md" asChild variant="ghost">
               <Link href="https://t3.chat/chat">Try for free</Link>
             </Button>
           </ul>
