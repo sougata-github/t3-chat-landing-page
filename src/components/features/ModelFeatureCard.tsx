@@ -66,7 +66,7 @@ const ModelFeatureCard = () => {
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <BotMessageSquare className="text-black size-8 max-sm:size-7" />
+          <BotMessageSquare className="text-white size-8 max-sm:size-7" />
         </motion.div>
 
         {/* ring-1 */}
