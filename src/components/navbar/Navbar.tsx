@@ -12,7 +12,7 @@ const Navbar = () => {
     <motion.header className="sticky top-0 py-6 bg-transparent z-40 backdrop-blur-md">
       <nav className="max-w-5xl mx-auto flex items-center w-full justify-between px-8 lg:px-4">
         {/* logo */}
-        <Link href="https://t3.chat/chat" className="flex items-center gap-1">
+        <Link href="#" className="flex items-center gap-1">
           <BotMessageSquare className="text-pink-700" />
           <span className="text-xl font-bold">T3.Chat</span>
         </Link>

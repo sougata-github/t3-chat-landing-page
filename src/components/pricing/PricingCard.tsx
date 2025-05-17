@@ -1,4 +1,7 @@
+"use client";
+
 import { CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -23,12 +26,31 @@ const PricingCard = ({
   isPrimary,
 }: Props) => {
   return (
-    <div
+    <motion.div
+      initial={{
+        opacity: 0,
+        filter: "blur(10px)",
+      }}
+      whileInView={{
+        opacity: 1,
+        filter: "blur(0px)",
+        transition: {
+          duration: 0.6,
+          delay: isPrimary ? 0.2 : 0,
+        },
+      }}
+      viewport={{ once: true }}
       className={cn(
         "flex flex-col px-6 py-4 rounded-xl cursor-pointer max-w-md w-full",
-        isPrimary ? "relative bg-muted-foreground/10" : "bg-muted-foreground/5"
+        isPrimary ? "relative z-20" : "bg-muted-foreground/5"
       )}
     >
+      {isPrimary && (
+        <div className="absolute inset-0 flex items-center justify-center -z-10">
+          <div className="size-120 rounded-full bg-[radial-gradient(circle,_rgba(229,43,129,1)_40%,_#fd0e85_50%,_transparent_90%)] blur-[160px] opacity-90" />
+        </div>
+      )}
+
       {/* card header */}
       <div className="mt-5 flex flex-col gap-4">
         <h2 className="text-lg font-semibold">{tier}</h2>
@@ -42,7 +64,7 @@ const PricingCard = ({
           className={cn(
             "py-6 mt-5 text-base rounded-full w-full",
             isPrimary &&
-              "relative bg-pink-700 text-white transition duration-300 hover:bg-pink-700/90 lg:hover:ring-2 lg:hover:ring-pink-700 lg:hover:ring-offset-4 lg:hover:ring-offset-background"
+              "relative bg-pink-700 text-white transition duration-300 hover:bg-pink-700/90 shadow-xl shadow-pink-700/40"
           )}
           asChild
           size="lg"
@@ -74,7 +96,7 @@ const PricingCard = ({
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 };
 

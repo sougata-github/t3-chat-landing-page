@@ -7,7 +7,7 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { MenuIcon, X } from "lucide-react";
+import { BotMessageSquare, MenuIcon, X } from "lucide-react";
 import { navLinks } from "@/constants";
 import Link from "next/link";
 
@@ -24,21 +24,8 @@ const MobileNav = () => {
       <DrawerContent className="pb-5">
         <DrawerHeader className="w-full flex-row justify-between">
           <DrawerTitle>
-            <Link href="/" className="flex items-center gap-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="#ff3e78"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="lucide lucide-message-circle-icon lucide-message-circle -mt-0.5"
-              >
-                <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-              </svg>
+            <Link href="#" className="flex items-center gap-1">
+              <BotMessageSquare className="text-pink-700" />
               <span className="text-xl font-bold">T3.Chat</span>
             </Link>
           </DrawerTitle>
@@ -62,7 +49,7 @@ const MobileNav = () => {
         </ul>
         <DrawerFooter>
           <Button className="text-sm rounded-full w-full mt-4" asChild>
-            <Link href="/">Try for free</Link>
+            <Link href="https://t3.chat/chat">Try for free</Link>
           </Button>
         </DrawerFooter>
       </DrawerContent>
