@@ -63,6 +63,81 @@ export const plans = [
   },
 ];
 
+export const testimonials = [
+  {
+    text: "T3 Chat is like having a brilliant teammate who’s always available. It’s helped me streamline my daily workflow.",
+    name: "Emily Johnson",
+    position: "Operations Manager at Lumina Corp",
+    highlightIndex: 1,
+  },
+  {
+    text: "The accuracy and tone of T3 Chat's responses are next-level. It feels like you’re chatting with a real person.",
+    name: "Michael Lee",
+    position: "Software Engineer at Orbit Systems",
+    highlightIndex: 0,
+  },
+  {
+    text: "We’ve integrated T3 Chat into our internal tools, and productivity has skyrocketed. Highly recommended!",
+    name: "Samantha Brooks",
+    position: "Head of Engineering at QuantumWorks",
+    highlightIndex: 0,
+  },
+  {
+    text: "T3 Chat drafts emails, summarizes documents, and even helps me brainstorm product copy. It’s a powerhouse.",
+    name: "Daniel Evans",
+    position: "Marketing Lead at Synthwave Studios",
+    highlightIndex: 1,
+  },
+  {
+    text: "I’ve used a lot of AI tools, but T3 Chat stands out. It gets the tone right every time and never misses context.",
+    name: "Chloe Martin",
+    position: "UX Designer at Nova Interactive",
+    highlightIndex: 0,
+  },
+  {
+    text: "T3 Chat is fast, smart, and actually useful. It’s the only AI assistant I’ve stuck with for more than a week.",
+    name: "James Carter",
+    position: "Freelance Web Developer",
+    highlightIndex: 1,
+  },
+  {
+    text: "T3 Chat has completely transformed how we support our customers. Our response times have dropped significantly.",
+    name: "Ava Thompson",
+    position: "Customer Success Manager at NexaHelp",
+    highlightIndex: 1,
+  },
+  {
+    text: "I use T3 Chat during team meetings to quickly summarize discussion points. It’s like having a real-time note taker.",
+    name: "Ryan Walker",
+    position: "Project Manager at AgileCore",
+    highlightIndex: 0,
+  },
+  {
+    text: "T3 Chat's ability to adapt to different contexts is impressive. It's saved me hours during content research.",
+    name: "Isabella Hughes",
+    position: "Content Strategist at Creativo",
+    highlightIndex: 1,
+  },
+  {
+    text: "We've embedded T3 Chat into our HR portal. Employees love how easy it is to get answers without digging through docs.",
+    name: "Ethan Ramirez",
+    position: "HR Director at PeopleSync",
+    highlightIndex: 0,
+  },
+  {
+    text: "Honestly, it feels like cheating. T3 Chat helps me write proposals, fix bugs, and even ideate designs.",
+    name: "Grace Bennett",
+    position: "Startup Founder",
+    highlightIndex: 0,
+  },
+  {
+    text: "Whether it’s debugging or writing unit tests, T3 Chat handles it with ease. It’s now part of my daily stack.",
+    name: "Liam Scott",
+    position: "Full-Stack Developer at DevForge",
+    highlightIndex: 1,
+  },
+];
+
 export const userMessge = "How does AI work?";
 export const aiMessage =
   "AI works by feeding computers lots of data and using algorithms to help them learn patterns and make predictions or decisions.";

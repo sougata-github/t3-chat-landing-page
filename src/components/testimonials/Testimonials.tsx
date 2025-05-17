@@ -1,3 +1,9 @@
+"use client";
+
+import { testimonials } from "@/constants";
+import { motion } from "framer-motion";
+import TestimonialCard from "./TestimonialCard";
+
 const Testimonials = () => {
   return (
     <section className="py-12 md:py-20">
@@ -7,6 +13,52 @@ const Testimonials = () => {
           What our Customers are saying
         </p>
       </div>
+
+      <motion.div className="flex flex-col gap-4 mt-20 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)] overflow-hidden">
+        {/* first row */}
+        <motion.div
+          className="flex gap-5 pl-5 flex-none min-w-max"
+          initial={{
+            translateX: "-50%",
+          }}
+          animate={{
+            translateX: "0%",
+            transition: {
+              ease: "linear",
+              duration: "40",
+              repeat: Infinity,
+            },
+          }}
+        >
+          {[...testimonials.slice(0, 6), ...testimonials.slice(0, 6)].map(
+            (testimonial, index) => (
+              <TestimonialCard {...testimonial} key={index} />
+            )
+          )}
+        </motion.div>
+
+        {/* second row*/}
+        <motion.div
+          className="flex gap-5 pr-5 flex-none min-w-max"
+          initial={{
+            translateX: "0%",
+          }}
+          animate={{
+            translateX: "-50%",
+            transition: {
+              ease: "linear",
+              duration: "40",
+              repeat: Infinity,
+            },
+          }}
+        >
+          {[...testimonials.slice(6), ...testimonials.slice(6)].map(
+            (testimonial, index) => (
+              <TestimonialCard {...testimonial} key={index} />
+            )
+          )}
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
