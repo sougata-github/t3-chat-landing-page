@@ -47,7 +47,7 @@ const PricingCard = ({
     >
       {isPrimary && (
         <div className="absolute inset-0 flex items-center justify-center -z-10">
-          <div className="size-120 rounded-full bg-[radial-gradient(circle,_rgba(229,43,129,1)_40%,_#fd0e85_50%,_transparent_90%)] blur-[160px] opacity-90" />
+          <div className="size-120 rounded-full bg-[radial-gradient(circle,_rgba(229,43,129,1)_40%,_#fd0e85_50%,_transparent_90%)] blur-[180px] opacity-90" />
         </div>
       )}
 
@@ -64,7 +64,7 @@ const PricingCard = ({
           className={cn(
             "py-6 mt-5 text-base rounded-full w-full",
             isPrimary &&
-              "relative bg-pink-700 text-white transition duration-300 hover:bg-pink-700/90 shadow-xl shadow-pink-700/40"
+              "relative bg-pink-700 text-white transition duration-300 hover:bg-pink-700/90 shadow-[0_0_25px_5px_rgba(219,39,119,0.4)]"
           )}
           asChild
           size="lg"

@@ -69,8 +69,8 @@ const Sync = () => {
       </div>
 
       <div className="space-y-4">
-        <div className="rounded-lg bg-zinc-900 p-4 border border-zinc-800">
-          <div className="text-sm text-zinc-400 mb-2">Sync Status</div>
+        <div className="rounded-lg bg-muted-foreground/10 p-4">
+          <div className="text-sm text-muted-foreground mb-2">Sync Status</div>
           <AnimatePresence mode="wait">
             {syncState === "syncing" && (
               <motion.div
@@ -82,7 +82,7 @@ const Sync = () => {
                 className="flex items-center gap-2"
               >
                 <RefreshCw className="size-5 text-pink-700 animate-spin" />
-                <span className="text-zinc-200">Syncing...</span>
+                <span className="text-muted-foreground">Syncing...</span>
               </motion.div>
             )}
             {syncState === "synced" && (
@@ -94,10 +94,10 @@ const Sync = () => {
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className="flex items-center gap-2"
               >
-                <div className="flex h-4 w-4 items-center justify-center rounded-full bg-pink-700/20 text-pink-700">
+                <div className="flex size-5 items-center justify-center rounded-full bg-pink-700/20 text-pink-700 p-1">
                   <Check className="size-4" />
                 </div>
-                <span className="text-zinc-200">Synced {syncTime}</span>
+                <span className="text-muted-foreground">Synced {syncTime}</span>
               </motion.div>
             )}
 
@@ -108,7 +108,7 @@ const Sync = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                className="text-zinc-400"
+                className="text-muted-foreground"
               >
                 Sync disabled. New messages won&apos;t be backed up.
               </motion.div>
@@ -120,7 +120,7 @@ const Sync = () => {
             opacity: syncEnabled ? 1 : 0.5,
           }}
           transition={{ duration: 0.3 }}
-          className="text-xs text-zinc-500"
+          className="text-xs text-muted-foreground"
         >
           Your threads sync automatically when new messages are sent.
         </motion.div>

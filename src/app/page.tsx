@@ -1,3 +1,4 @@
+import Testimonials from "@/components/testimonials/Testimonials";
 import GetStarted from "@/components/get-started/GetStarted";
 import Features from "@/components/features/Features";
 import Pricing from "@/components/pricing/Pricing";
@@ -10,9 +11,8 @@ export default function Home() {
       <Features />
       <GetStarted />
       <Pricing />
-      {/*
-      <Pricing />
       <Testimonials />
+      {/*
       <FAQ /> */}
     </>
   );
