@@ -31,20 +31,20 @@ const Sync = () => {
   const [syncTime, setSyncTime] = useState("just now");
 
   useEffect(() => {
+    let timeout1: NodeJS.Timeout;
     let timeout2: NodeJS.Timeout;
-    let timeout3: NodeJS.Timeout;
 
     if (syncEnabled) {
       setSyncState("syncing");
 
       // After 2 seconds, show synced state
-      timeout2 = setTimeout(() => {
+      timeout1 = setTimeout(() => {
         setSyncState("synced");
         setSyncTime("just now");
       }, 2000);
 
       // After 5 seconds, automatically turn off sync
-      timeout3 = setTimeout(() => {
+      timeout2 = setTimeout(() => {
         setSyncEnabled(false);
       }, 5000);
     } else {
@@ -52,8 +52,8 @@ const Sync = () => {
     }
 
     return () => {
+      clearTimeout(timeout1);
       clearTimeout(timeout2);
-      clearTimeout(timeout3);
     };
   }, [syncEnabled]);
 
