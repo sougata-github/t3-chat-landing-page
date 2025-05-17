@@ -138,6 +138,34 @@ export const testimonials = [
   },
 ];
 
+export const faqs = [
+  {
+    question: "What is T3 Chat?",
+    answer:
+      "T3 Chat is a fast, multi-model AI chatbot designed to provide instant and intelligent responses across a wide range of tasks.",
+  },
+  {
+    question: "Is T3 Chat free to use?",
+    answer:
+      "Yes! T3 Chat offers a free plan with daily message limits and basic features. You can upgrade to Premium for advanced capabilities and higher usage.",
+  },
+  {
+    question: "Which AI models are supported?",
+    answer:
+      "T3 Chat supports a variety of powerful AI models. You can choose your preferred model depending on your needs.",
+  },
+  {
+    question: "How do I get started with T3 Chat?",
+    answer:
+      "Just sign up or log in, choose a model, and start chatting by entering your prompt. It only takes a few seconds.",
+  },
+  {
+    question: "Is my data safe with T3 Chat?",
+    answer:
+      "Yes. We prioritize user privacy and data security. Your chats are encrypted and never used to train models without your permission.",
+  },
+];
+
 export const userMessge = "How does AI work?";
 export const aiMessage =
   "AI works by feeding computers lots of data and using algorithms to help them learn patterns and make predictions or decisions.";

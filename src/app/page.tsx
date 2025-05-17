@@ -3,6 +3,7 @@ import GetStarted from "@/components/get-started/GetStarted";
 import Features from "@/components/features/Features";
 import Pricing from "@/components/pricing/Pricing";
 import Hero from "@/components/hero/Hero";
+import FAQs from "@/components/faqs/FAQs";
 
 export default function Home() {
   return (
@@ -12,8 +13,7 @@ export default function Home() {
       <GetStarted />
       <Pricing />
       <Testimonials />
-      {/*
-      <FAQ /> */}
+      <FAQs />
     </>
   );
 }
