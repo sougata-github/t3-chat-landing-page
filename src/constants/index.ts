@@ -166,6 +166,35 @@ export const faqs = [
   },
 ];
 
+export const footerLinks = [
+  {
+    section: "Product",
+    links: [
+      { label: "Features", link: "#" },
+      { label: "Pricing", link: "#" },
+      { label: "Roadmap", link: "#" },
+      { label: "Changelog", link: "#" },
+    ],
+  },
+  {
+    section: "Resources",
+    links: [
+      { label: "Documentation", link: "#" },
+      { label: "Tutorials", link: "#" },
+      { label: "Blog", link: "#" },
+      { label: "FAQ", link: "#" },
+    ],
+  },
+  {
+    section: "Legal",
+    links: [
+      { label: "Privacy Policy", link: "#" },
+      { label: "Terms of Service", link: "#" },
+      { label: "Cookie Policy", link: "#" },
+    ],
+  },
+];
+
 export const userMessge = "How does AI work?";
 export const aiMessage =
   "AI works by feeding computers lots of data and using algorithms to help them learn patterns and make predictions or decisions.";
