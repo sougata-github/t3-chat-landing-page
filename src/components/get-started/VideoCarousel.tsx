@@ -118,7 +118,7 @@ const VideoCarousel = () => {
                         videoRefs.current[index] = el;
                       }}
                       src={step.video}
-                      className="w-full h-full object-cover"
+                      className="size-full object-cover"
                       muted
                       playsInline
                       autoPlay

@@ -71,7 +71,7 @@ const Message = ({ role, message, delay }: MessageProps) => {
         className={cn(
           "rounded-xl py-2 px-4",
           role === "user"
-            ? "order-1 bg-pink-800"
+            ? "order-1 bg-pink-700"
             : "order-2 bg-muted-foreground/5"
         )}
       >

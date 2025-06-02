@@ -1,5 +1,4 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Ghost } from "lucide-react";
 
 interface Props {
   name: string;
@@ -29,9 +28,7 @@ const TestimonialCard = ({ name, position, text, highlightIndex }: Props) => {
         </p>
       </CardContent>
       <CardFooter className="flex gap-4 items-center">
-        <div className="rounded-full p-2 bg-muted-foreground/15">
-          <Ghost className="size-5" />
-        </div>
+        <div className="rounded-full p-2 size-6 bg-gradient-to-bl from-pink-500 via-pink-700 to-pink-900" />
 
         <div className="flex flex-col">
           <span className="text-sm">{name}</span>
