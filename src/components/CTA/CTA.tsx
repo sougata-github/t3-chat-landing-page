@@ -1,4 +1,3 @@
-import { BotMessageSquare } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "../ui/button";
@@ -27,10 +26,7 @@ const CTA = () => {
           className="md:text-base group rounded-full gap-2 items-center bg-pink-700 text-white transition duration-300 hover:bg-pink-700/90 shadow-[0_0_25px_5px_rgba(219,39,119,0.4)] py-6"
           size="lg"
         >
-          <Link href="https://t3.chat/chat">
-            <BotMessageSquare className="size-5" />
-            Get Started Today
-          </Link>
+          <Link href="https://t3.chat/chat">Get Started Today</Link>
         </Button>
       </div>
     </section>

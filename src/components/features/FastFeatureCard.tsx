@@ -1,11 +1,13 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { BotMessageSquare, SmileIcon } from "lucide-react";
+import { SmileIcon } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { aiMessage, userMessge } from "@/constants";
 import FeatureCard from "./FeatureCard";
+import Image from "next/image";
+import { TypingAnimation } from "../magicui/typing-animation";
 
 const FastFeatureCard = () => {
   return (
@@ -56,20 +58,30 @@ const Message = ({ role, message, delay }: MessageProps) => {
       <div
         className={cn(
           "bg-muted-foreground/10 rounded-full p-2 h-fit transition duration-300",
-          role === "user" ? "order-2" : "order-1"
+          role === "user" ? "order-2" : "order-1 bg-transparent"
         )}
       >
         {role === "user" ? (
           <SmileIcon className="size-5 text-white" />
         ) : (
-          <BotMessageSquare className="size-5 text-white" />
+          <div className="flex items-center justify-center">
+            <Image
+              quality={100}
+              unoptimized
+              height={32}
+              width={32}
+              src="/t3-chat-logo.png"
+              alt="logo"
+              className="h-8 w-8 object-contain"
+            />
+          </div>
         )}
       </div>
 
       {/* message */}
       <motion.div
         className={cn(
-          "rounded-xl py-2 px-4",
+          "rounded-xl py-2 px-4 h-fit",
           role === "user"
             ? "order-1 bg-pink-700"
             : "order-2 bg-muted-foreground/5"
@@ -77,7 +89,7 @@ const Message = ({ role, message, delay }: MessageProps) => {
       >
         {role === "ai" && isTypingBot ? (
           <LoadingDots />
-        ) : (
+        ) : role === "user" ? (
           <p className="text-wrap max-w-sm">
             {message.split(" ").map((word, index) => (
               <motion.span
@@ -94,6 +106,13 @@ const Message = ({ role, message, delay }: MessageProps) => {
               </motion.span>
             ))}
           </p>
+        ) : (
+          <TypingAnimation
+            className="text-sm text-wrap max-w-sm font-medium"
+            duration={10}
+          >
+            {message}
+          </TypingAnimation>
         )}
       </motion.div>
     </motion.div>

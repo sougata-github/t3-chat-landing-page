@@ -7,8 +7,9 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "@/components/ui/drawer";
-import { BotMessageSquare, MenuIcon, X } from "lucide-react";
+import { MenuIcon, X } from "lucide-react";
 import { navLinks } from "@/constants";
+import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "../ui/button";
@@ -24,8 +25,15 @@ const MobileNav = () => {
       <DrawerContent className="pb-5">
         <DrawerHeader className="w-full flex-row justify-between">
           <DrawerTitle>
-            <Link href="#" className="flex items-center gap-1">
-              <BotMessageSquare className="text-pink-700" />
+            <Link href="#" className="flex items-center gap-1.5">
+              <Image
+                quality={100}
+                unoptimized
+                height={32}
+                width={32}
+                src="/t3-chat-logo.png"
+                alt="logo"
+              />
               <span className="text-xl font-bold">T3.Chat</span>
             </Link>
           </DrawerTitle>

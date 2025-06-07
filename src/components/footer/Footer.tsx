@@ -1,7 +1,7 @@
 "use client";
 
 import { footerLinks } from "@/constants";
-import { BotMessageSquare } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -13,7 +13,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
             <Link href="#" className="flex items-center gap-1">
-              <BotMessageSquare className="text-pink-700" />
+              <Image
+                quality={100}
+                unoptimized
+                height={32}
+                width={32}
+                src="/t3-chat-logo.png"
+                alt="logo"
+              />
               <span className="text-xl font-bold ml-1.5">T3.Chat</span>
             </Link>
             <p className="mt-2 text-sm text-muted-foreground">

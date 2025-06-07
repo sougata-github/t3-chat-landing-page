@@ -3,7 +3,6 @@
 import type React from "react";
 
 import { RiGeminiFill, RiClaudeFill, RiOpenaiFill } from "react-icons/ri";
-import { BotMessageSquare } from "lucide-react";
 import Image from "next/image";
 
 import { motion, useInView } from "framer-motion";
@@ -61,17 +60,25 @@ const ModelFeatureCard = () => {
         ref={ref}
       >
         <motion.div
-          className="p-2.5 absolute rounded-full bg-pink-700 flex items-center justify-center max-sm:top-[50%] top-50 md:top-52 lg:top-50 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 shadow"
+          className="absolute p-2.5 flex items-center justify-center max-sm:top-[50%] top-50 md:top-52 lg:top-50 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30"
           variants={centerIconVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
-          <BotMessageSquare className="text-white size-8 max-sm:size-7" />
+          <Image
+            quality={100}
+            unoptimized
+            height={40}
+            width={40}
+            src="/t3-chat-logo.png"
+            alt="logo"
+            className="rounded-md"
+          />
         </motion.div>
 
         {/* ring-1 */}
         <motion.div
-          className="absolute max-sm:top-[50%] max-sm:size-40 size-60 md:size-56 lg:size-60 rounded-full top-60 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20"
+          className="absolute max-sm:top-[50%] max-sm:size-40 size-60 md:size-56 lg:size-60 rounded-full top-60 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 will-change-transform [backface-visibility:hidden]"
           style={{
             background:
               "linear-gradient(135deg, rgba(219, 39, 119, 0.15), rgba(219, 39, 119, 0.05))",
@@ -113,7 +120,7 @@ const ModelFeatureCard = () => {
 
         {/* ring-2 */}
         <motion.div
-          className="absolute max-sm:top-[50%] max-sm:size-70 size-100 md:size-90 lg:size-100 rounded-full top-60 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+          className="absolute max-sm:top-[50%] max-sm:size-70 size-100 md:size-90 lg:size-100 rounded-full top-60 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 will-change-transform [backface-visibility:hidden]"
           style={{
             background:
               "linear-gradient(135deg, rgba(219, 39, 119, 0.1), rgba(219, 39, 119, 0.02))",
