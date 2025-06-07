@@ -9,7 +9,7 @@ const Features = () => {
       <div className="text-center">
         <h1 className="section-heading">Features</h1>
         <p className="text-muted-foreground max-w-md max-md:max-w-xs mx-auto text-base md:text-lg mt-2">
-          Real-time answers. Human-like flow
+          Your Advanced AI Assistant
         </p>
       </div>
 
