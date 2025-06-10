@@ -80,7 +80,19 @@ const Hero = () => {
         </motion.div>
 
         {/* hero gradient */}
-        <div className="absolute top-90 lg:h-[900px] lg:w-[900px] md:h-[400px] md:w-[400px] -translate-x-1/2 left-1/2 rounded-full bg-[radial-gradient(circle,__rgba(299,43,129,1)_40%,_#fd0e85_50%,_transparent_90%)] blur-[80px] opacity-90 max-md:hidden -z-10" />
+        <motion.div
+          className="absolute top-90 lg:h-[900px] lg:w-[900px] md:h-[400px] md:w-[400px] -translate-x-1/2 left-1/2 rounded-full bg-[radial-gradient(circle,__rgba(299,43,129,1)_40%,_#fd0e85_50%,_transparent_90%)] blur-[80px] opacity-90 max-md:hidden -z-10"
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+            transition: {
+              duration: 0.8,
+              delay: 0.8,
+            },
+          }}
+        />
       </motion.div>
     </section>
   );
