@@ -17,18 +17,18 @@ export const steps = [
   {
     title: "Sign Up",
     description: "Create your account or log-in in seconds.",
-    video: "/step-1.mp4",
+    video: "/step-1-output.mp4",
   },
   {
     title: "Choose Model",
     description:
       "Select from a range of powerful AI models to suit your needs.",
-    video: "/step-2.mp4",
+    video: "/step-2-output.mp4",
   },
   {
     title: "Enter prompt",
     description: "Start the conversation by entering your thoughts.",
-    video: "/step-3.mp4",
+    video: "/step-3-output.mp4",
   },
 ];
 
