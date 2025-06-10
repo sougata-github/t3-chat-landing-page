@@ -7,7 +7,7 @@ import { steps } from "@/constants";
 import { cn } from "@/lib/utils";
 
 const VideoCarousel = () => {
-  const [activeStep, setActiveStep] = useState<number | null>(null); // null = not started
+  const [activeStep, setActiveStep] = useState<number | null>(null);
   const [showReplay, setShowReplay] = useState(false);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -17,18 +17,6 @@ const VideoCarousel = () => {
     videoRefs.current = videoRefs.current.slice(0, steps.length);
   }, []);
 
-  // Play next video or show replay if it's the last one
-  const playNextVideo = () => {
-    if (activeStep === null) return;
-
-    if (activeStep < steps.length - 1) {
-      setActiveStep((prev) => (prev ?? 0) + 1);
-    } else {
-      setShowReplay(true);
-    }
-  };
-
-  // Play video on activeStep change & pause others
   useEffect(() => {
     if (activeStep === null) return;
 
@@ -43,7 +31,6 @@ const VideoCarousel = () => {
     });
   }, [activeStep]);
 
-  // Trigger playback when section comes into view
   useEffect(() => {
     if (isInView && activeStep === null) {
       setActiveStep(0);
@@ -55,70 +42,38 @@ const VideoCarousel = () => {
     setActiveStep(0);
   };
 
-  return (
-    <div ref={containerRef} className="mt-20 sm:px-10 md:px-1 lg:px-14">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 items-center">
-        <div className="space-y-8 order-2 md:order-1">
-          {steps.map((step, index) => (
-            <div
-              key={index}
-              className={cn(
-                "flex items-start space-x-4 p-4 rounded-xl transition-all duration-300",
-                activeStep === index ? "bg-muted-foreground/5" : ""
-              )}
-            >
-              <div
-                className={cn(
-                  "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center",
-                  activeStep === index
-                    ? "bg-muted-foreground/10"
-                    : "bg-secondary"
-                )}
-              >
-                {activeStep !== null && activeStep > index ? (
-                  <Check className="size-4 sm:size-5 text-pink-700" />
-                ) : (
-                  <span className="max-md:text-sm text-pink-700 font-medium">
-                    {index + 1}
-                  </span>
-                )}
-              </div>
-              <div>
-                <h3
-                  className={cn(
-                    "text-lg font-medium mb-2",
-                    activeStep === index ? "text-primary" : "text-white"
-                  )}
-                >
-                  {step.title}
-                </h3>
-                <p className="text-sm md:text-base text-muted-foreground max-w-xs md:max-w-md">
-                  {step.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+  const playNextVideo = () => {
+    if (activeStep === null) return;
+    if (activeStep < steps.length - 1) {
+      setActiveStep((prev) => (prev ?? 0) + 1);
+    } else {
+      setShowReplay(true);
+    }
+  };
 
-        <div className="relative h-[400px] rounded-xl overflow-hidden order-1 md:order-2">
+  return (
+    <div ref={containerRef} className="mt-20 px-4 sm:px-10">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-10 lg:gap-x-10 items-start w-full">
+        {/* Video Container */}
+        <div className="relative rounded-xl w-full h-full order-1 lg:order-2">
           <AnimatePresence mode="wait">
             {steps.map(
               (step, index) =>
                 activeStep === index && (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, filter: "blur(10px)", y: 5 }}
+                    animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                    exit={{ opacity: 0, filter: "blur(10px)", y: 5 }}
                     transition={{ duration: 0.5 }}
-                    className="absolute inset-0"
+                    className="aspect-video rounded-lg"
                   >
                     <video
                       ref={(el) => {
                         videoRefs.current[index] = el;
                       }}
                       src={step.video}
-                      className="size-full object-cover"
+                      className="w-full h-full object-cover rounded-lg"
                       muted
                       playsInline
                       autoPlay
@@ -129,7 +84,7 @@ const VideoCarousel = () => {
             )}
           </AnimatePresence>
 
-          {/* Overlay for Replay Button */}
+          {/* Replay overlay */}
           {showReplay && (
             <motion.div
               initial={{ opacity: 0 }}
@@ -145,6 +100,49 @@ const VideoCarousel = () => {
               </button>
             </motion.div>
           )}
+        </div>
+
+        {/* Steps Section */}
+        <div className="flex flex-col gap-4 order-2 lg:order-1 w-full">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className={cn(
+                "flex items-start gap-4 p-4 rounded-xl transition-all duration-300 flex-1 cursor-pointer",
+                activeStep === index ? "bg-muted-foreground/5" : ""
+              )}
+            >
+              <div
+                className={cn(
+                  "flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center",
+                  activeStep === index
+                    ? "bg-muted-foreground/10"
+                    : "bg-secondary"
+                )}
+              >
+                {activeStep !== null && activeStep > index ? (
+                  <Check className="size-4 text-pink-700" />
+                ) : (
+                  <span className="text-sm text-pink-700 font-medium">
+                    {index + 1}
+                  </span>
+                )}
+              </div>
+              <div>
+                <h3
+                  className={cn(
+                    "text-lg font-medium mb-2",
+                    activeStep === index ? "text-primary" : "text-white"
+                  )}
+                >
+                  {step.title}
+                </h3>
+                <p className="text-sm text-muted-foreground max-w-xs md:max-w-md">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

@@ -14,7 +14,7 @@ const Testimonials = () => {
         </p>
       </div>
 
-      <motion.div className="flex flex-col gap-4 mt-20 [mask-image:linear-gradient(to_right,transparent,black_20%,black_80%,transparent)] overflow-hidden">
+      <motion.div className="flex flex-col gap-4 mt-20 [mask-image:linear-gradient(to_right,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_10%,rgba(0,0,0,1)_90%,rgba(0,0,0,0)_100%)] overflow-hidden">
         {/* first row */}
         <motion.div
           className="flex gap-5 pl-5 flex-none min-w-max"
